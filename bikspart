@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multivendor Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to the Automobile Spares Marketplace!</h1>
+    <div id="product-list">
+        <p>Loading products...</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#product-list div {
+    background-color: #fff;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+// Simulated vendor product data
+const products = [
+    { vendor: "Vendor A", product: "Brake Pads", price: "$50" },
+    { vendor: "Vendor B", product: "Oil Filter", price: "$20" }
+];
+
+// Display products on the page
+window.onload = () => {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = ''; // Clear loading message
+
+    products.forEach(item => {
+        const div = document.createElement('div');
+        div.textContent = `${item.vendor} - ${item.product} - ${item.price}`;
+        productList.appendChild(div);
+    });
+};
